@@ -13,25 +13,30 @@
     <div class="overflow-auto border rounded" style="width:600px; height:600px;" @scroll="onTableScroll">
       <table class="min-w-full text-sm text-left border-collapse">
         <thead class="bg-gray-100 sticky top-0">
-          <tr>
-            <th @click="sortBy('id')" class="px-2 py-1 cursor-pointer">ID ▲▼</th>
-            <th @click="sortBy('albumId')" class="px-2 py-1 cursor-pointer">Album ID ▲▼</th>
-            <th @click="sortBy('title')" class="px-2 py-1 cursor-pointer">Title ▲▼</th>
-            <th class="px-2 py-1">Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="photo in visiblePhotos" :key="photo.id" class="border-b">
-            <td class="px-2 py-1">{{ photo.id }}</td>
-            <td class="px-2 py-1">{{ photo.albumId }}</td>
-            <td class="px-2 py-1 max-w-xs overflow-hidden text-ellipsis whitespace-nowrap" :title="photo.title">
-              {{ photo.title }}
-            </td>
-            <td class="px-2 py-1">
-              <img :src="photo.thumbnailUrl" :alt="photo.title" class="w-12 h-12 rounded" />
-            </td>
-          </tr>
-        </tbody>
+  <tr>
+    <th @click="sortBy('id')" class="px-2 py-1 cursor-pointer">ID ▲▼</th>
+    <th @click="sortBy('albumId')" class="px-2 py-1 cursor-pointer">Album ID ▲▼</th>
+    <th @click="sortBy('title')" class="px-2 py-1 cursor-pointer">Title ▲▼</th>
+    <th class="px-2 py-1">Ссылка</th>
+    <th class="px-2 py-1">Image</th>
+  </tr>
+</thead>
+<tbody>
+  <tr v-for="photo in visiblePhotos" :key="photo.id" class="border-b">
+    <td class="px-2 py-1">{{ photo.id }}</td>
+    <td class="px-2 py-1">{{ photo.albumId }}</td>
+    <td class="px-2 py-1 max-w-xs overflow-hidden text-ellipsis whitespace-nowrap" :title="photo.title">
+      {{ photo.title }}
+    </td>
+    <td class="border p-2">
+      <a :href="photo.url" target="_blank" class="text-blue-500 underline">Ссылка</a>
+    </td>
+    <td class="px-2 py-1">
+      <img :src="photo.thumbnailUrl" :alt="photo.title" class="w-12 h-12 rounded" />
+    </td>
+  </tr>
+</tbody>
+
       </table>
     </div>
   </div>

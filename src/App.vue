@@ -1,6 +1,5 @@
 <template>
   <div class="p-4">
-    <!-- Фильтр и кнопка -->
     <div class="mb-4 flex items-center space-x-2">
       <input v-model="albumFilter" 
              type="text" placeholder="ID альбомов (через пробел)" 
@@ -10,11 +9,7 @@
         Поиск
       </button>
     </div>
-
-    <!-- Загрузка -->
     <div v-if="photoStore.loading" class="mb-2 text-gray-500">Загрузка данных...</div>
-
-    <!-- Таблица -->
     <div class="overflow-auto border rounded" style="width:600px; height:600px;" @scroll="onTableScroll">
       <table class="min-w-full text-sm text-left border-collapse">
         <thead class="bg-gray-100 sticky top-0">
